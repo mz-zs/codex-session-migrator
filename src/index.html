@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex 会话迁移</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <section class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <h1>Codex 会话迁移</h1>
+            <p>按项目或单条会话导出，再导入到另一台电脑的 Codex 数据目录。</p>
+          </div>
+        </section>
+        <section class="codex-home">
+          <label for="codexHomeInput">Codex 数据目录</label>
+          <div class="path-row">
+            <input id="codexHomeInput" type="text" spellcheck="false">
+            <button id="chooseCodexHomeBtn" type="button">选择</button>
+            <button id="refreshBtn" type="button">刷新</button>
+          </div>
+        </section>
+      </header>
+
+      <nav class="tabs" aria-label="mode">
+        <button id="exportTab" class="tab active" type="button">导出</button>
+        <button id="importTab" class="tab" type="button">导入</button>
+      </nav>
+
+      <section id="notice" class="notice hidden"></section>
+
+      <section id="exportView" class="view active">
+        <aside class="project-pane">
+          <div class="pane-head">
+            <div>
+              <h2>项目</h2>
+              <span id="projectCount">0 个项目</span>
+            </div>
+            <input id="projectSearch" class="compact-input" type="search" placeholder="筛选项目">
+          </div>
+          <div id="projectList" class="project-list"></div>
+        </aside>
+
+        <section class="session-pane">
+          <div class="pane-head session-head">
+            <div>
+              <h2 id="selectedProjectTitle">选择一个项目</h2>
+              <span id="sessionCount">0 条会话</span>
+            </div>
+            <div class="session-actions">
+              <input id="sessionSearch" class="compact-input" type="search" placeholder="筛选会话">
+              <button id="selectAllSessionsBtn" type="button">全选</button>
+              <button id="clearSessionsBtn" type="button">清空</button>
+              <button id="exportProjectBtn" class="primary" type="button">导出整个项目</button>
+              <button id="exportSelectedBtn" class="primary" type="button">导出选中</button>
+            </div>
+          </div>
+          <div id="sessionList" class="session-list empty-state">请选择左侧项目。</div>
+        </section>
+      </section>
+
+      <section id="importView" class="view">
+        <section class="import-layout">
+          <aside class="import-panel">
+            <h2>迁移包</h2>
+            <div class="path-row vertical">
+              <input id="packagePathInput" type="text" spellcheck="false" placeholder="选择 .codexpack 或 .zip 文件">
+              <button id="choosePackageBtn" type="button">选择迁移包</button>
+            </div>
+
+            <h2>导入目标</h2>
+            <label class="field-label" for="targetProjectInput">目标项目目录</label>
+            <div class="path-row vertical">
+              <input id="targetProjectInput" type="text" spellcheck="false" placeholder="留空则保留原项目路径">
+              <button id="chooseTargetProjectBtn" type="button">选择项目目录</button>
+            </div>
+
+            <label class="check-row">
+              <input id="addWorkspaceRootInput" type="checkbox" checked>
+              <span>把目标项目加入 Codex 项目列表</span>
+            </label>
+            <label class="check-row">
+              <input id="overwriteFilesInput" type="checkbox" checked>
+              <span>覆盖同 ID 的会话文件</span>
+            </label>
+            <button id="importSelectedBtn" class="primary wide" type="button">导入选中会话</button>
+          </aside>
+
+          <section class="package-pane">
+            <div class="pane-head session-head">
+              <div>
+                <h2 id="packageTitle">未选择迁移包</h2>
+                <span id="packageSummary">选择迁移包后可勾选导入会话。</span>
+              </div>
+              <div class="session-actions">
+                <input id="importSessionSearch" class="compact-input" type="search" placeholder="筛选导入会话">
+                <button id="selectAllImportBtn" type="button">全选</button>
+                <button id="clearImportBtn" type="button">清空</button>
+              </div>
+            </div>
+            <div id="importSessionList" class="session-list empty-state">暂无迁移包。</div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

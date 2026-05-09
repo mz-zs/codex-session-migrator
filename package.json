@@ -1,0 +1,14 @@
+{
+  "name": "codex-session-migrator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Visual Codex Desktop session export/import tool.",
+  "scripts": {
+    "start": "tauri dev",
+    "dev": "tauri dev",
+    "build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.1"
+  }
+}
