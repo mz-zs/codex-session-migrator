@@ -158,3 +158,9 @@ src-tauri/target/release/bundle/
 - 导入完成后重新打开 Codex Desktop
 - 如果目标电脑没有对应项目目录，建议先创建项目目录，再导入时选择它
 - `.codexpack` 里可能包含会话内容，请按私人数据处理
+
+## 感谢社区支持
+
+[![LINUX DO](https://img.shields.io/badge/LINUX%20DO-社区支持-blue)](https://linux.do/)
+
+感谢 [LINUX DO](https://linux.do/) 社区的支持与交流。
